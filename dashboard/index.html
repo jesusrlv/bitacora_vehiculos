@@ -20,6 +20,11 @@
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <meta name="theme-color" content="#712cf9" />
     <link href="dashboard.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="js/query.js"></script>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -495,23 +500,23 @@
             <h1 class="h2">Dashboard</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="d-flex gap-2">
-                  <select class="form-select" aria-label="Select 1">
+                  <select class="form-select" aria-label="Select 1" id="fecha_mes">
                     <option selected>Mes...</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
                     <option value="10">Octubre</option>
                     <option value="11">Noviembre</option>
                     <option value="12">Diciembre</option>
                   </select>
                   
-                  <select class="form-select" aria-label="Select 2">
+                  <select class="form-select" aria-label="Select 2" id="fecha_annio" onchange="bitacora()">
                     <option selected>Año...</option>
                     <option value="2025">2025</option>
                     <option value="2026">2026</option>
@@ -645,7 +650,7 @@
           
           <h2>Bitacora de mantenimiento del mes <span id="mesBitacora"></span></h2>
           <div class="table-responsive small">
-            <table class="table table-striped table-sm table-hover">
+            <table class="table table-striped table-sm table-hover text-center">
               <thead class="table-dark">
                 <tr>
                   <th scope="col">#</th>
@@ -658,119 +663,7 @@
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
-              <tbody class="table-group-divider">
-                <tr>
-                  <td>1,001</td>
-                  <td>random</td>
-                  <td>data</td>
-                  <td>placeholder</td>
-                  <td>text</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td>layout</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td>tabular</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>text</td>
-                  <td>random</td>
-                  <td>layout</td>
-                  <td>dashboard</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>placeholder</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td>irrelevant</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>random</td>
-                  <td>data</td>
-                  <td>placeholder</td>
-                  <td>text</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td>layout</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td>tabular</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>text</td>
-                  <td>placeholder</td>
-                  <td>layout</td>
-                  <td>dashboard</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td>visual</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>random</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td>text</td>
-                </tr>
+              <tbody class="table-group-divider" id="datosBitacora">
               </tbody>
             </table>
           </div>
