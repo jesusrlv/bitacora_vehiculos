@@ -15,8 +15,6 @@ function bitacora(){
     });
 }
 
-bitacora();
-
 
 function flotilla(){
     
