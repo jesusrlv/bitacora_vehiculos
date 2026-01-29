@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-01-2026 a las 15:50:17
+-- Tiempo de generación: 29-01-2026 a las 06:33:16
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -39,6 +39,18 @@ CREATE TABLE `bitacora` (
   `fecha_edicion` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `bitacora`
+--
+
+INSERT INTO `bitacora` (`id`, `economico`, `tipo_mantenimiento`, `orden_servicio`, `km`, `proveedor`, `costo`, `fecha_mantenimiento`, `fecha_edicion`) VALUES
+(1, '1', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
+(2, '2', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
+(3, '3', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
+(4, '4', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
+(5, '5', 1, 'Prueba 5', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
+(6, '5', 2, 'Prueba 5', 123432, 2, 12345, '2026-01-26', '2026-01-26 23:41:55');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +64,17 @@ CREATE TABLE `economico` (
   `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `economico`
+--
+
+INSERT INTO `economico` (`id`, `vehiculo`, `no_economico`, `descripcion`) VALUES
+(1, 'Vehículo 1', '1', 'Vehículo 1'),
+(2, 'Vehículo 2', '2', 'Vehículo 2'),
+(3, 'Vehículo 3', '3', 'Vehículo 3'),
+(4, 'Vehículo 4', '4', 'Vehículo 4'),
+(5, 'Vehículo 5', '5', 'Vehículo 5');
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +86,19 @@ CREATE TABLE `mantenimiento` (
   `tipo_mantenimiento` varchar(72) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `mantenimiento`
+--
+
+INSERT INTO `mantenimiento` (`id`, `tipo_mantenimiento`) VALUES
+(1, 'Afinación'),
+(2, 'Frenos'),
+(3, 'Suspensión'),
+(4, 'Reparación de motor'),
+(5, 'Llantas'),
+(6, 'Problema eléctrico'),
+(7, 'Otro');
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +109,16 @@ CREATE TABLE `proveedor` (
   `id` int(11) NOT NULL,
   `proveedor` varchar(54) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`id`, `proveedor`) VALUES
+(1, 'Proveedor 1'),
+(2, 'Proveedor 2'),
+(3, 'Proveedor 3'),
+(4, 'Proveedor 4');
 
 --
 -- Índices para tablas volcadas
@@ -110,25 +156,25 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `economico`
 --
 ALTER TABLE `economico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `mantenimiento`
 --
 ALTER TABLE `mantenimiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
