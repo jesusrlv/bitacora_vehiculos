@@ -4,7 +4,7 @@
     $fecha_mes = $_POST['fecha_mes'];
     $fecha_annio = $_POST['fecha_annio'];
 
-    $sqlContar = "SELECT b.economico AS economico, e.vehiculo as vehiculo, COUNT(b.economico) AS cantidad_economico FROM bitacora b LEFT JOIN economico e ON b.economico = e.no_economico WHERE MONTH(fecha_mantenimiento) = '$fecha_mes' AND YEAR(fecha_mantenimiento) = '$fecha_annio' GROUP BY b.economico";
+    $sqlContar = "SELECT b.economico AS economico, e.vehiculo as vehiculo, COUNT(b.economico) AS cantidad_economico FROM bitacora b JOIN economico e ON b.economico = e.no_economico WHERE MONTH(fecha_mantenimiento) = '$fecha_mes' AND YEAR(fecha_mantenimiento) = '$fecha_annio' GROUP BY b.economico";
    
     // SELECT b.economico AS economico, COUNT(b.economico) AS cantidad_economico FROM bitacora b GROUP BY economico;
 
