@@ -25,6 +25,7 @@
 
     <script src="js/query.js"></script>
     <script src="js/filtros.js"></script>
+    <script src="js/functions.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -408,7 +409,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="altaBitacora()">
                     <svg class="bi" aria-hidden="true">
                       <use xlink:href="#calendar4"></use>
                     </svg>
@@ -720,3 +721,64 @@
     <script src="dashboard.js" class="astro-vvvwv3sm"></script>
   </body>
 </html>
+
+<!-- Modal alta bitácora -->
+<div class="modal fade" id="altaBitacoraModal" tabindex="-1" aria-labelledby="altaBitacoraModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="altaBitacoraModalLabel">Alta de bitácora</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="container">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="# económico" aria-label="# económico" aria-describedby="basic-addon1">
+          </div>
+          
+          <select class="form-select mb-3" aria-label="Tipo de mantenimiento...">
+            <option value="" selected>Tipo de mantenimiento...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Orden de servicio" aria-label="Orden de servicio" aria-describedby="basic-addon1">
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Kilometraje" aria-label="Kilometraje" aria-describedby="basic-addon1">
+          </div>
+
+          <select class="form-select mb-3" aria-label="Tipo de mantenimiento...">
+            <option value="" selected>Proveedor...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="text" class="form-control" placeholder="Costo" aria-label="Costo" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+            <input type="date" class="form-control" placeholder="Fecha de mantenimiento" aria-label="Fecha de mantenimiento" aria-describedby="basic-addon1">
+          </div>
+
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
