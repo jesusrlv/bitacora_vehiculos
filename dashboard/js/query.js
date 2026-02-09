@@ -12,6 +12,7 @@ function bitacora(){
         success: function(data){
             $('#datosBitacora').html(data);
             flotillaGraph();
+            datosCard();
         }
     });
 }
@@ -131,7 +132,7 @@ function crearGrafica(data) {
         data: {
             labels: vehiculos,
             datasets: [{
-                label: 'Datos del vehículo',
+                label: 'Uso mensaual de vehículos',
                 data: cantidad,
                 lineTension: 0,
                 backgroundColor: '#007bff' ,
@@ -179,7 +180,10 @@ function datosCard(){
         url: "query/cards.php",
         dataType: "json",
         success: function(data){
-            $('#datosBitacora').html(data);
+            let vehiculosAtendidos = data.vehiculo;
+            $('#vehiculosAtendidos').text(vehiculosAtendidos);
+            let costoTotal = data.gasto;
+            $('#costoTotal').text(costoTotal);
         }
     });
 }
