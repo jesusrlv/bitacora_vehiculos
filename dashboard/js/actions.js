@@ -36,7 +36,7 @@ function editarRegistro(id) {
             if(success){
                 
                 $('#numEconomicoEditar').val(data.economico);
-                $('#mantenimientoList').val(data.tipoMantenimiento);
+                $('#mantenimientoListEditar').val(data.tipoMantenimiento);
                 $('#ordenServicioEditar').val(data.ordenServicio);
                 $('#kilometrajeEditar').val(data.km);
                 $('#proveedorListEditar').val(data.proveedor);
