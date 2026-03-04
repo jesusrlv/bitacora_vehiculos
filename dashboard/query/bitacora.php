@@ -27,7 +27,10 @@
             <td>'.$row['proveedor'].'</td>
             <td>'.$row['costo'].'</td>
             <td>'.$row['fecha_mantenimiento'].'</td>
-            <td><i class="bi bi-eye-fill"></i></td>
+            <td>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalVer'.$row['id'].'"><i class="bi bi-eye-fill"></i></button>            
+            <button class="btn btn-secondary btn-sm" onclick="editarRegistro('.$row['id'].')"><i class="bi bi-pencil-square"></i></button>  
+            <button class="btn btn-danger btn-sm" onclick="eliminarRegistro('.$row['id'].')"><i class="bi bi-trash"></i></button></td>
         </tr>
         ';
     }
