@@ -16,6 +16,14 @@ function altaBitacora(){
             $('#mantenimientoList').html(data);
         }
     });
+    $.ajax({
+        type: "POST",
+        url: "query/queryVehiculos.php",
+        dataType: "html",
+        success: function(data){
+            $('#numEconomico').html(data);
+        }
+    });
 }
 
 function guardarBitacora(){
