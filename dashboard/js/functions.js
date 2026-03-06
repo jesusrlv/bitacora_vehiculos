@@ -76,3 +76,13 @@ function guardarBitacora(){
         }
     });
 }
+
+function exportarTabla() {
+  const tabla = document.getElementById('tablaExportar');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteBitacora.xls';
+  a.click();
+}

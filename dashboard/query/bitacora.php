@@ -13,18 +13,25 @@
         <tr>
             <td>'.$x.'</td>';
         $economico = $row['economico'];
+        $mantenimiento = $row['tipo_mantenimiento'];
+        $proveedor = $row['proveedor'];
         
         $sqlEconomico = $conn->query("SELECT * FROM economico WHERE id = '$economico'")->fetch_assoc();
-
         $economico2 = $sqlEconomico['vehiculo'];
         $noEconomico = $sqlEconomico['no_economico'];
 
+        $sqlMantenimiento = $conn->query("SELECT * FROM mantenimiento WHERE id = '$mantenimiento'")->fetch_assoc();
+        $mantenimiento2 = $sqlMantenimiento['tipo_mantenimiento'];
+
+        $sqlProveedor = $conn->query("SELECT * FROM proveedor WHERE id = '$proveedor'")->fetch_assoc();
+        $proveedor2 = $sqlProveedor['proveedor'];
+
         echo'
             <td>'.$economico2.' '.$noEconomico.'</td>
-            <td>'.$row['tipo_mantenimiento'].'</td>
+            <td>'.$mantenimiento2.'</td>
             <td>'.$row['orden_servicio'].'</td>
             <td>'.$row['km'].'</td>
-            <td>'.$row['proveedor'].'</td>
+            <td>'.$proveedor2.'</td>
             <td>'.$row['costo'].'</td>
             <td>'.$row['fecha_mantenimiento'].'</td>
             <td>
