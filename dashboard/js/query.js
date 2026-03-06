@@ -30,29 +30,6 @@ function flotilla(){
     });
 }
 
-// function flotillaGraph(){
-
-//     let mes = $('#fecha_mes').val();
-//     let annio = $('#fecha_annio').val();
-    
-//     $.ajax({
-//         type: "POST",
-//         url: "query/flotillaGraph.php",
-//         data: {
-//             fecha_mes: mes,
-//             fecha_annio: annio
-//         },
-//         dataType: "json",
-//         success: function(data){
-
-//             console.log(data);
-            
-//             return data;
-
-//         }
-//     });
-// }
-
 function flotillaGraph(){
     let mes = $('#fecha_mes').val();
     let annio = $('#fecha_annio').val();
