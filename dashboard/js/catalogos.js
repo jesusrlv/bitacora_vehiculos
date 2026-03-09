@@ -3,10 +3,10 @@ function vehiculosModal() {
     
     $.ajax({
         type: "POST",
-        url: "query/vehiculos.php",
+        url: "query/queryVehiculosModal.php",
         dataType: "html",
         success: function(data){
-            $('#vehiculos').html(data);
+            $('#modalVehiculosQuery').html(data);
         }
     });
 }

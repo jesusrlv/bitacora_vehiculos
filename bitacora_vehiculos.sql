@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-01-2026 a las 06:33:16
+-- Tiempo de generación: 09-03-2026 a las 20:07:04
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,20 +36,20 @@ CREATE TABLE `bitacora` (
   `proveedor` int(11) NOT NULL,
   `costo` int(11) NOT NULL,
   `fecha_mantenimiento` date NOT NULL,
-  `fecha_edicion` datetime NOT NULL
+  `fecha_edicion` datetime NOT NULL,
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `bitacora`
 --
 
-INSERT INTO `bitacora` (`id`, `economico`, `tipo_mantenimiento`, `orden_servicio`, `km`, `proveedor`, `costo`, `fecha_mantenimiento`, `fecha_edicion`) VALUES
-(1, '1', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
-(2, '2', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
-(3, '3', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
-(4, '4', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
-(5, '5', 1, 'Prueba 5', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55'),
-(6, '5', 2, 'Prueba 5', 123432, 2, 12345, '2026-01-26', '2026-01-26 23:41:55');
+INSERT INTO `bitacora` (`id`, `economico`, `tipo_mantenimiento`, `orden_servicio`, `km`, `proveedor`, `costo`, `fecha_mantenimiento`, `fecha_edicion`, `estatus`) VALUES
+(1, '4', 4, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(2, '2', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(3, '3', 6, 'Prueba 1', 123432, 2, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(4, '4', 5, 'Prueba 1', 123432, 3, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(7, '2', 2, '2', 2, 2, 2, '2026-03-02', '2026-03-03 21:57:51', 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `economico`
