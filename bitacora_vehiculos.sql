@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-03-2026 a las 20:07:04
+-- Tiempo de generación: 10-03-2026 a las 19:03:40
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -61,19 +61,41 @@ CREATE TABLE `economico` (
   `id` int(11) NOT NULL,
   `vehiculo` varchar(72) COLLATE utf8_unicode_ci NOT NULL,
   `no_economico` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+  `descripcion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `flotilla` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `economico`
 --
 
-INSERT INTO `economico` (`id`, `vehiculo`, `no_economico`, `descripcion`) VALUES
-(1, 'Vehículo 1', '1', 'Vehículo 1'),
-(2, 'Vehículo 2', '2', 'Vehículo 2'),
-(3, 'Vehículo 3', '3', 'Vehículo 3'),
-(4, 'Vehículo 4', '4', 'Vehículo 4'),
-(5, 'Vehículo 5', '5', 'Vehículo 5');
+INSERT INTO `economico` (`id`, `vehiculo`, `no_economico`, `descripcion`, `flotilla`) VALUES
+(1, 'Vehículo 1', '1', 'Vehículo 1', 2),
+(2, 'Vehículo 2', '2', 'Vehículo 2', 1),
+(3, 'Vehículo 3', '3', 'Vehículo 3', 1),
+(4, 'Vehículo 4', '4', 'Vehículo 4', 3),
+(5, 'Vehículo 5', '5', 'Vehículo 5', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `flotilla`
+--
+
+CREATE TABLE `flotilla` (
+  `id` int(11) NOT NULL,
+  `flotilla` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `flotilla`
+--
+
+INSERT INTO `flotilla` (`id`, `flotilla`) VALUES
+(1, 'Flotilla 1'),
+(2, 'Flotilla 2'),
+(3, 'Flotilla 3'),
+(4, 'Flotilla 4');
 
 -- --------------------------------------------------------
 
@@ -137,6 +159,12 @@ ALTER TABLE `economico`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `flotilla`
+--
+ALTER TABLE `flotilla`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `mantenimiento`
 --
 ALTER TABLE `mantenimiento`
@@ -163,6 +191,12 @@ ALTER TABLE `bitacora`
 --
 ALTER TABLE `economico`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `flotilla`
+--
+ALTER TABLE `flotilla`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `mantenimiento`

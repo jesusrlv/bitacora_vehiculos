@@ -16,10 +16,10 @@ function flotilla() {
     
     $.ajax({
         type: "POST",
-        url: "query/flotillaModal.php",
+        url: "query/queryFlotillaModal.php",
         dataType: "html",
         success: function(data){
-            $('#flotilla').html(data);
+            $('#modalFlotillaQuery').html(data);
         }
     });
 }
@@ -31,7 +31,7 @@ function mantenimiento() {
         url: "query/mantenimiento.php",
         dataType: "html",
         success: function(data){
-            $('#mantenimiento').html(data);
+            $('#modalMantenimientoQuery').html(data);
         }
     });
 }
@@ -43,7 +43,7 @@ function proveedor() {
         url: "query/proveedor.php",
         dataType: "html",
         success: function(data){
-            $('#proveedor').html(data);
+            $('#modalProveedorQuery').html(data);
         }
     });
 }
