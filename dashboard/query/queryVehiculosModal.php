@@ -15,6 +15,10 @@
             <td>'.$row['no_economico'].'</td>
             <td>'.$row['descripcion'].'</td>
             <td><i class="bi bi-cart-check"></i> '.$sqlFlotilla['flotilla'].'</td>
+            <td>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditarVehiculo'.$row['id'].'"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-danger btn-sm" onclick="eliminarVehiculo('.$row['id'].')"><i class="bi bi-trash"></i></button>
+            </td>
         </tr>
         ';
     }
