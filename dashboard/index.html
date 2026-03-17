@@ -872,7 +872,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarVehiculo"><i class="bi bi-plus-circle-fill"></i> Agregar vehículo</button>
+        <button type="button" class="btn btn-primary" onclick="modalAgregarVehiculo()"><i class="bi bi-plus-circle-fill"></i> Agregar vehículo</button>
       </div>
     </div>
   </div>
@@ -887,11 +887,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-car-front-fill"></i></span>
+          <input type="text" class="form-control" placeholder="Vehículo" aria-label="Vehículo" aria-describedby="basic-addon1" id="vehiculoAgregar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+          <input type="text" class="form-control" placeholder="Número económico" aria-label="Número económico" aria-describedby="basic-addon1" id="noEconomicoAgregar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-chat-right-text-fill"></i></span>
+          <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" id="descripcionAgregar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart"></i></span>
+          <select class="form-select" aria-label="Default select example" id="flotillaAgregar">
+            
+          </select>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalVehiculos">Cerrar</button>
-        <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Agregar vehículo</button>
+        <button type="button" class="btn btn-primary" onclick="guardarVehiculo()"><i class="bi bi-floppy"></i> Guardar vehículo</button>
       </div>
     </div>
   </div>
@@ -906,11 +925,28 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-car-front-fill"></i></span>
+          <input type="text" class="form-control" placeholder="Vehículo" aria-label="Vehículo" aria-describedby="basic-addon1" id="vehiculoEditar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+          <input type="text" class="form-control" placeholder="Número económico" aria-label="Número económico" aria-describedby="basic-addon1" id="noEconomicoEditar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-chat-right-text-fill"></i></span>
+          <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" id="descripcionEditar">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart"></i></span>
+          <select class="form-select" aria-label="Default select example" id="flotillaEditar">
+            
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Agregar vehículo</button>
+        <button type="button" class="btn btn-primary"><i class="bi bi-floppy"></i> Guardar vehículo</button>
       </div>
     </div>
   </div>
