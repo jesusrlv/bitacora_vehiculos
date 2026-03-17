@@ -10,22 +10,7 @@ function vehiculosModal() {
         }
     });
 }
-function modalEditarVehiculo(id) {
-    $("#modalEditarVehiculo").modal("show");
-    // $.ajax({
-    //     type: "POST",
-    //     url: "query/queryEditarVehiculoModal.php",
-    //     data: {id: id},
-    //     dataType: "json",
-    //     success: function(data){
-    //         $('#idEditar').val(data.id);
-    //         $('#vehiculoEditar').val(data.vehiculo);
-    //         $('#noEconomicoEditar').val(data.no_economico);
-    //         $('#descripcionEditar').val(data.descripcion);
-    //         $('#flotillaEditar').val(data.flotilla);
-    //     }
-    // });
-}
+
 
 function modalAgregarVehiculo() {
     $("#modalVehiculos").modal("hide");
@@ -71,8 +56,32 @@ function guardarVehiculo() {
         }
     });
 }
+
+function modalEditarVehiculo(id) {
+    $("#modalEditarVehiculo").modal("show");
+    $("#modalVehiculos").modal("hide");
+    flotillaEditar();
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryEditarVehiculoModal.php",
+        data: {id: id},
+        dataType: "json",
+        success: function(data){
+            $('#idEditarVehiculo').val(data.id);
+            $('#vehiculoEditar').val(data.vehiculo);
+            $('#noEconomicoEditar').val(data.no_economico);
+            $('#descripcionEditar').val(data.descripcion);
+            $('#flotillaEditar').val(data.flotilla);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error al obtener datos del vehículo:", error);
+        }
+    });
+}
+
 function editarVehiculo() {
-    let id = $('#idEditar').val();
+    let id = $('#idEditarVehiculo').val();
     let vehiculo = $('#vehiculoEditar').val();
     let noEconomico = $('#noEconomicoEditar').val();
     let descripcion = $('#descripcionEditar').val();
@@ -98,7 +107,8 @@ function editarVehiculo() {
             if(response.success == 1){
                 alert("Vehículo editado exitosamente");
                 $('#modalEditarVehiculo').modal('hide');
-                modalEditarVehiculo(id);
+                // modalEditarVehiculo(id);
+                vehiculosModal();
             } else {
                 alert("No se editó el vehículo");
             }
@@ -148,6 +158,86 @@ function flotillaAgregar() {
         }
     });
 }
+function flotillaEditar() {
+    
+    $.ajax({
+        type: "POST",
+        url: "query/flotillaAgregar.php",
+        dataType: "html",
+        success: function(data){
+            $('#flotillaEditar').html(data);
+        }
+    });
+}
+
+function modalEditarFlotilla(id) {
+    $("#modalFlotillaEditar").modal("show");
+    $("#modalFlotilla").modal("hide");
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryEditarFlotillaModal.php",
+        data: {id: id},
+        dataType: "json",
+        success: function(data){
+            let success = data.success;
+            if(success = "1"){
+                $('#idFlotillaEditar').val(data.id);
+                $('#nombreFlotillaEditar').val(data.flotilla);
+            } else {
+                alert("Error al obtener el registro");
+            }   
+        }
+    });
+}
+
+function editarFlotilla() {
+    let id = $('#idFlotillaEditar').val();
+    let nombreFlotilla = $('#nombreFlotillaEditar').val();
+
+    if(nombreFlotilla === ""){
+        alert("Por favor, ingrese el nombre de la flotilla.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_editarFlotilla.php",
+        data: {
+            id: id,
+            nombreFlotilla: nombreFlotilla
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Flotilla editada exitosamente");
+                $('#modalFlotillaEditar').modal('hide');
+                flotilla();
+            } else {
+                alert("No se editó la flotilla");
+            }
+        }
+    });
+}
+
+function eliminarFlotilla(id) {
+    if(confirm("¿Estás seguro de que deseas eliminar esta flotilla?")){
+        $.ajax({
+            type: "POST",
+            url: "query/eliminarFlotilla.php",
+            data: {id: id},
+            dataType: "json",
+            success: function(response){
+                if(response.success == 1){
+                    alert("Flotilla eliminada exitosamente");
+                    flotilla();
+                } else {
+                    alert("No se eliminó la flotilla");
+                }
+            }
+        });
+    }
+}
 
 function mantenimiento() {
      $("#modalMantenimiento").modal("show");
@@ -157,6 +247,36 @@ function mantenimiento() {
         dataType: "html",
         success: function(data){
             $('#modalMantenimientoQuery').html(data);
+        }
+    });
+}
+
+
+function agregarFlotilla() {
+    let nombreFlotilla = $('#nombreFlotillaAgregar').val();
+
+    if(nombreFlotilla === ""){
+        alert("Por favor, ingrese el nombre de la flotilla.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_agregarFlotilla.php",
+        data: {
+            nombreFlotilla: nombreFlotilla
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Flotilla agregada exitosamente");
+                $("#modalFlotillaAgregar").modal("hide");
+                $("#modalFlotilla").modal("show");
+                $('#nombreFlotillaAgregar').val("");
+                flotilla();
+            } else {
+                alert("No se agregó la flotilla");
+            }
         }
     });
 }
