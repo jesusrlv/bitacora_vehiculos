@@ -10,6 +10,10 @@
         <tr>
             <td>'.$x.'</td>
             <td>'.$row['proveedor'].'</td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="editarProveedor('.$row['id'].')"><i class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="eliminarProveedor('.$row['id'].')"><i class="bi bi-trash3-fill"></i></button>
+                </td>
         </tr>
         ';
     }

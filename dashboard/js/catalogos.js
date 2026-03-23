@@ -320,7 +320,7 @@ function guardarEdicionMantenimiento() {
         }
     });
 }
-    
+
 function eliminarMantenimiento(id) {
     if(confirm("¿Estás seguro de que deseas eliminar este mantenimiento?")){
         $.ajax({
@@ -379,6 +379,99 @@ function proveedor() {
             $('#modalProveedorQuery').html(data);
         }
     });
+}
+
+function agregarProveedor() {
+    let nombreProveedor = $('#nombreProveedorAgregar').val();
+
+    if(nombreProveedor === ""){
+        alert("Por favor, ingrese el nombre del proveedor.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_agregarProveedor.php",
+        data: {
+            nombreProveedor: nombreProveedor
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Proveedor agregado exitosamente");
+                $("#modalProveedorAgregar").modal("hide");
+                $("#modalProveedor").modal("show");
+                $('#nombreProveedorAgregar').val("");
+                proveedor();
+            } else {
+                alert("No se agregó el proveedor");
+            }
+        }
+    });
+}
+
+function editarProveedor(id) {
+    $("#modalProveedorEditar").modal("show");
+    $("#modalProveedor").modal("hide");
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryEditarProveedorModal.php",
+        data: {id: id},
+        dataType: "json",
+        success: function(data){
+            $('#idProveedorEditar').val(data.id);
+            $('#nombreProveedorEditar').val(data.proveedor);
+        }
+    });
+}
+
+function guardarEdicionProveedor() {
+    let id = $('#idProveedorEditar').val();
+    let nombreProveedor = $('#nombreProveedorEditar').val();
+
+    if(nombreProveedor === ""){
+        alert("Por favor, ingrese el nombre del proveedor.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_editarProveedor.php",
+        data: {
+            id: id,
+            nombreProveedor: nombreProveedor
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Proveedor editado exitosamente");
+                $('#modalProveedorEditar').modal('hide');
+                proveedor();
+            } else {
+                alert("No se editó el proveedor");
+            }
+        }
+    });
+}
+
+function eliminarProveedor(id) {
+    if(confirm("¿Estás seguro de que deseas eliminar este proveedor?")){
+        $.ajax({
+            type: "POST",
+            url: "query/eliminarProveedor.php",
+            data: {id: id},
+            dataType: "json",
+            success: function(response){
+                if(response.success == 1){
+                    alert("Proveedor eliminado exitosamente");
+                    proveedor();
+                } else {
+                    alert("No se eliminó el proveedor");
+                }
+            }
+        });
+    }
 }
 
 function costo() {
