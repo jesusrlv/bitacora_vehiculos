@@ -251,6 +251,31 @@ function mantenimiento() {
     });
 }
 
+function agregarMantenimiento() {
+    let nombreMantenimiento = $('#nombreMantenimientoAgregar').val();
+
+    if(nombreMantenimiento === ""){
+        alert("Por favor, ingrese el nombre del mantenimiento.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_agregarMantenimiento.php",
+        data: {
+            nombreMantenimiento: nombreMantenimiento
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Mantenimiento agregado exitosamente");
+                $("#modalMantenimientoAgregar").modal("hide");
+                mantenimiento();
+            }
+        }
+    });
+}
+
 
 function agregarFlotilla() {
     let nombreFlotilla = $('#nombreFlotillaAgregar').val();
