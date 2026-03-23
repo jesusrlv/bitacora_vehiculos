@@ -276,6 +276,69 @@ function agregarMantenimiento() {
     });
 }
 
+function editarMantenimiento(id) {
+    $("#modalMantenimientoEditar").modal("show");
+    $("#modalMantenimiento").modal("hide");
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryEditarMantenimientoModal.php",
+        data: {id: id},
+        dataType: "json",
+        success: function(data){
+            $('#idMantenimientoEditar').val(data.id);
+            $('#nombreMantenimientoEditar').val(data.mantenimiento);
+        }
+    });
+}
+
+function guardarEdicionMantenimiento() {
+    let id = $('#idMantenimientoEditar').val();
+    let nombreMantenimiento = $('#nombreMantenimientoEditar').val();
+
+    if(nombreMantenimiento === ""){
+        alert("Por favor, ingrese el nombre del mantenimiento.");
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "query/prcd_editarMantenimiento.php",
+        data: {
+            id: id,
+            nombreMantenimiento: nombreMantenimiento
+        },
+        dataType: "json",
+        success: function(response){
+            if(response.success == 1){
+                alert("Mantenimiento editado exitosamente");
+                $('#modalMantenimientoEditar').modal('hide');
+                mantenimiento();
+            } else {
+                alert("No se editó el mantenimiento");
+            }
+        }
+    });
+}
+    
+function eliminarMantenimiento(id) {
+    if(confirm("¿Estás seguro de que deseas eliminar este mantenimiento?")){
+        $.ajax({
+            type: "POST",
+            url: "query/eliminarMantenimiento.php",
+            data: {id: id},
+            dataType: "json",
+            success: function(response){
+                if(response.success == 1){
+                    alert("Mantenimiento eliminado exitosamente");
+                    mantenimiento();
+                } else {
+                    alert("No se eliminó el mantenimiento");
+                }
+            }
+        });
+    }
+}
 
 function agregarFlotilla() {
     let nombreFlotilla = $('#nombreFlotillaAgregar').val();

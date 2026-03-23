@@ -1041,6 +1041,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col"><i class="bi bi-clipboard-plus-fill"></i> Mantenimiento</th>
+              <th scope="col">Acción</th>
             </tr>
           </thead>
           <tbody id="modalMantenimientoQuery">
@@ -1072,6 +1073,29 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalMantenimiento">Cerrar</button>
         <button type="button" class="btn btn-primary" onclick="agregarMantenimiento()"><i class="bi bi-cart-plus"></i> Guardar mantenimiento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal mantenimiento editar-->
+<div class="modal fade" id="modalMantenimientoEditar" tabindex="-1" aria-labelledby="modalMantenimientoEditarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalMantenimientoEditarLabel">Editar Mantenimiento</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart-plus-fill"></i></span>
+          <input type="text" id="idMantenimientoEditar" hidden>
+          <input type="text" class="form-control" placeholder="Nombre del mantenimiento" aria-label="Nombre del mantenimiento" aria-describedby="basic-addon1" id="nombreMantenimientoEditar">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalMantenimiento">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="guardarEdicionMantenimiento()"><i class="bi bi-cart-plus"></i> Editar mantenimiento</button>
       </div>
     </div>
   </div>
