@@ -916,6 +916,49 @@
   </div>
 </div>
 
+<!-- Modal reporte vehiculos-->
+<div class="modal modal-lg fade" id="modalReporteVehiculo" tabindex="-1" aria-labelledby="modalReporteVehiculoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalReporteVehiculoLabel"><i class="bi bi-car-front"></i> Reporte Vehículos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha mantenimiento</th>
+                <th scope="col">KM</th>
+                <th scope="col">Tipo mantenimiento</th>
+                <th scope="col">Orden servicio</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Costo</th>
+              </tr>
+            </thead>
+            <tbody id="modalReporteVehiculoQuery">
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="col" colspan="7" class="text-end">
+                  <button class="btn btn-success" onclick="exportarReporteVehiculo()"><i class="bi bi-file-earmark-excel-fill"></i> Excel</button>
+
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalVehiculos">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="guardarVehiculo()"><i class="bi bi-floppy"></i> Guardar vehículo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal editar vehiculos-->
 <div class="modal modal-lg fade" id="modalEditarVehiculo" tabindex="-1" aria-labelledby="modalEditarVehiculoLabel" aria-hidden="true">
   <div class="modal-dialog">

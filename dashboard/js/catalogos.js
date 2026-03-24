@@ -11,6 +11,20 @@ function vehiculosModal() {
     });
 }
 
+function reporteVehiculo(id) {
+    $("#modalReporteVehiculo").modal("show");
+    $("#modalVehiculos").modal("hide");
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteVehiculoModal.php",
+        data: {id: id},
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteVehiculoQuery').html(data);
+        }
+    });
+}
 
 function modalAgregarVehiculo() {
     $("#modalVehiculos").modal("hide");
