@@ -855,8 +855,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table text-center">
-          <thead>
+        <table class="table text-center table-sm table-hover">
+          <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Vehículo</th>
@@ -926,8 +926,16 @@
       </div>
       <div class="modal-body">
 
-        <table class="table text-center">
-            <thead>
+        <div class="container">
+          <h3>Vehículo: <span id="nombreVehiculoReporte"></span></h3>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar3"></i></span>
+            <input type="date" class="form-control" placeholder="Fecha mantenimiento" aria-label="Fecha mantenimiento" aria-describedby="basic-addon1" id="fechaReporteVehiculo">
+          </div>
+        </div>
+
+        <table class="table text-center table-hover table-sm">
+            <thead class="table-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Fecha mantenimiento</th>
@@ -1005,8 +1013,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table text-center">
-          <thead>
+        <table class="table text-center table-sm table-hover">
+          <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col"><i class="bi bi-cart-check"></i> Flotilla</th>
@@ -1079,8 +1087,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table text-center">
-          <thead>
+        <table class="table text-center table-sm table-hover">
+          <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col"><i class="bi bi-clipboard-plus-fill"></i> Mantenimiento</th>
@@ -1176,8 +1184,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table text-center">
-          <thead>
+        <table class="table text-center table-sm table-hover">
+          <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col"><i class="bi bi-person-vcard-fill"></i> Proveedor</th>

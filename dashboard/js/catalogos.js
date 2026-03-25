@@ -14,16 +14,33 @@ function vehiculosModal() {
 function reporteVehiculo(id) {
     $("#modalReporteVehiculo").modal("show");
     $("#modalVehiculos").modal("hide");
+     let fechahoy = new Date();
+     $('#fechaReporteVehiculo').val(fechahoy.toISOString().split('T')[0]);
+
+     let fechaBuscar = $('#fechaReporteVehiculo').val();
 
     $.ajax({
         type: "POST",
         url: "query/queryReporteVehiculoModal.php",
-        data: {id: id},
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
         dataType: "html",
         success: function(data){
             $('#modalReporteVehiculoQuery').html(data);
         }
     });
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "query/queryNombreVehiculo.php",
+    //     data: {id: id},
+    //     dataType: "html",
+    //     success: function(data){
+    //         $('#modalReporteVehiculoQuery').html(data);
+    //     }
+    // });
 }
 
 function modalAgregarVehiculo() {
@@ -353,7 +370,6 @@ function eliminarMantenimiento(id) {
         });
     }
 }
-
 function agregarFlotilla() {
     let nombreFlotilla = $('#nombreFlotillaAgregar').val();
 

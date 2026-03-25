@@ -11,9 +11,9 @@
             <td>'.$x.'</td>
             <td>'.$row['tipo_mantenimiento'].'</td>
                 <td>
-                    <button type="button" class="btn btn-success" onclick="modalEditarMantenimiento('.$row['id'].')"><i class="bi bi-file-earmark-post"></i></button>
-                    <button type="button" class="btn btn-primary" onclick="editarMantenimiento('.$row['id'].')"><i class="bi bi-pencil-square"></i></button>
-                    <button type="button" class="btn btn-danger" onclick="eliminarMantenimiento('.$row['id'].')"><i class="bi bi-trash3-fill"></i></button>
+                    <button type="button" class="btn btn-success btn-sm" onclick="modalEditarMantenimiento('.$row['id'].')"><i class="bi bi-file-earmark-post"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="editarMantenimiento('.$row['id'].')"><i class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="eliminarMantenimiento('.$row['id'].')"><i class="bi bi-trash3-fill"></i></button>
                 </td>
         </tr>
         ';
