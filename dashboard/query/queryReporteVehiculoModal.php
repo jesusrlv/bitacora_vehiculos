@@ -2,8 +2,9 @@
     require('qc.php');
 
     $id = $_POST['id'];
-   
-    $sql = "SELECT * FROM bitacora WHERE economico = '$id'";
+    $fecha = $_POST['fecha'];
+
+    $sql = "SELECT * FROM bitacora WHERE economico = '$id' AND fecha_mantenimiento = '$fecha' ORDER BY id ASC";
     $resultadoSql = $conn->query($sql);
     $x = 0;
     while($row = $resultadoSql->fetch_assoc()) {

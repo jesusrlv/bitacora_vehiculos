@@ -930,11 +930,12 @@
           <h3>Vehículo: <span id="nombreVehiculoReporte"></span></h3>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar3"></i></span>
-            <input type="date" class="form-control" placeholder="Fecha mantenimiento" aria-label="Fecha mantenimiento" aria-describedby="basic-addon1" id="fechaReporteVehiculo">
+            <input type="date" class="form-control" placeholder="Fecha mantenimiento" aria-label="Fecha mantenimiento" aria-describedby="basic-addon1" id="fechaReporteVehiculo" onchange="reporteVehiculoFecha()">
+            <input type="text" class="form-control" placeholder="FidHidden" aria-label="FidHidden" aria-describedby="basic-addon1" id="idVehiculoReporte" hidden>
           </div>
         </div>
 
-        <table class="table text-center table-hover table-sm">
+        <table class="table text-center table-hover table-sm" id="reporteVehiculoTable">
             <thead class="table-dark">
               <tr>
                 <th scope="col">#</th>
@@ -951,7 +952,7 @@
             <tfoot>
               <tr>
                 <th scope="col" colspan="7" class="text-end">
-                  <button class="btn btn-success" onclick="exportarReporteVehiculo()"><i class="bi bi-file-earmark-excel-fill"></i> Excel</button>
+                  <button class="btn btn-success" onclick="reporteVehiculoExcel()"><i class="bi bi-file-earmark-excel-fill"></i> Excel</button>
 
                 </th>
               </tr>

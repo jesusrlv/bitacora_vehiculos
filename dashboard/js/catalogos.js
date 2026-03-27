@@ -16,8 +16,8 @@ function reporteVehiculo(id) {
     $("#modalVehiculos").modal("hide");
      let fechahoy = new Date();
      $('#fechaReporteVehiculo').val(fechahoy.toISOString().split('T')[0]);
-
-     let fechaBuscar = $('#fechaReporteVehiculo').val();
+     $('#idVehiculoReporte').val(id);
+      let fechaBuscar = $('#fechaReporteVehiculo').val();
 
     $.ajax({
         type: "POST",
@@ -31,16 +31,34 @@ function reporteVehiculo(id) {
             $('#modalReporteVehiculoQuery').html(data);
         }
     });
+}
 
-    // $.ajax({
-    //     type: "POST",
-    //     url: "query/queryNombreVehiculo.php",
-    //     data: {id: id},
-    //     dataType: "html",
-    //     success: function(data){
-    //         $('#modalReporteVehiculoQuery').html(data);
-    //     }
-    // });
+function reporteVehiculoFecha() {
+    let id = $('#idVehiculoReporte').val();
+    let fechaBuscar = $('#fechaReporteVehiculo').val();
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteVehiculoModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteVehiculoQuery').html(data);
+        }
+    });
+}
+
+function reporteVehiculoExcel() {
+  const tabla = document.getElementById('reporteVehiculoTable');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteOtrosGastos.xls';
+  a.click();
 }
 
 function modalAgregarVehiculo() {
