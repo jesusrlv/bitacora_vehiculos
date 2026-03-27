@@ -1079,6 +1079,58 @@
   </div>
 </div>
 
+<!-- Modal reporte flotilla-->
+<div class="modal modal-lg fade" id="modalReporteFlotilla" tabindex="-1" aria-labelledby="modalReporteFlotillaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalReporteFlotillaLabel"><i class="bi bi-car-front"></i> Reporte Flotilla</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+          <h3>Flotilla: <span id="nombreFlotillaReporte"></span></h3>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar3"></i></span>
+            <input type="date" class="form-control" placeholder="Fecha mantenimiento" aria-label="Fecha mantenimiento" aria-describedby="basic-addon1" id="fechaReporteVehiculo" onchange="reporteFlotillaFecha()">
+            <input type="text" class="form-control" placeholder="FidHidden" aria-label="FidHidden" aria-describedby="basic-addon1" id="idVehiculoReporte" hidden>
+          </div>
+        </div>
+
+        <table class="table text-center table-hover table-sm" id="reporteVehiculoTable">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha mantenimiento</th>
+                <th scope="col">KM</th>
+                <th scope="col">Tipo mantenimiento</th>
+                <th scope="col">Orden servicio</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Costo</th>
+              </tr>
+            </thead>
+            <tbody id="modalReporteVehiculoQuery">
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="col" colspan="7" class="text-end">
+                  <button class="btn btn-success" onclick="reporteVehiculoExcel()"><i class="bi bi-file-earmark-excel-fill"></i> Excel</button>
+
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalVehiculos">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="guardarVehiculo()"><i class="bi bi-floppy"></i> Guardar vehículo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal mantenimiento-->
 <div class="modal fade" id="modalMantenimiento" tabindex="-1" aria-labelledby="modalMantenimientoLabel" aria-hidden="true">
   <div class="modal-dialog">

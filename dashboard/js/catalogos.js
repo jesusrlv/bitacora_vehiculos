@@ -288,6 +288,28 @@ function eliminarFlotilla(id) {
     }
 }
 
+function reporteFlotilla(id) {
+    $("#modalReporteFlotilla").modal("show");
+    $("#modalFlotilla").modal("hide");
+     let fechahoy = new Date();
+     $('#fechaReporteFlotilla').val(fechahoy.toISOString().split('T')[0]);
+     $('#idFlotillaReporte').val(id);
+      let fechaBuscar = $('#fechaReporteFlotilla').val();
+
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteFlotillaModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteFlotillaQuery').html(data);
+        }
+    });
+}
+
 function mantenimiento() {
      $("#modalMantenimiento").modal("show");
     $.ajax({
