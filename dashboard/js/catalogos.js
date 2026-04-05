@@ -18,7 +18,21 @@ function reporteVehiculo(id) {
      $('#fechaReporteVehiculo').val(fechahoy.toISOString().split('T')[0]);
      $('#idVehiculoReporte').val(id);
       let fechaBuscar = $('#fechaReporteVehiculo').val();
+    //nombre del vehículo en el modal de reporte
+    $.ajax({
+        type: "POST",
+        url: "query/queryNombreVehiculoModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreVehiculo = data.nombreVehiculo;
 
+            $('#nombreVehiculoReporte').html(nombreVehiculo);
+        }
+    });
+    //tabla de modal de vehículo
     $.ajax({
         type: "POST",
         url: "query/queryReporteVehiculoModal.php",
