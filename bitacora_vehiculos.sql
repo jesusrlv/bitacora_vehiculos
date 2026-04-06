@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-03-2026 a las 19:03:40
+-- Tiempo de generación: 06-04-2026 a las 23:01:36
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bitacora` (
   `id` int(11) NOT NULL,
   `economico` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `flotilla` int(11) NOT NULL,
   `tipo_mantenimiento` int(11) NOT NULL,
   `orden_servicio` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `km` int(11) NOT NULL,
@@ -44,12 +45,13 @@ CREATE TABLE `bitacora` (
 -- Volcado de datos para la tabla `bitacora`
 --
 
-INSERT INTO `bitacora` (`id`, `economico`, `tipo_mantenimiento`, `orden_servicio`, `km`, `proveedor`, `costo`, `fecha_mantenimiento`, `fecha_edicion`, `estatus`) VALUES
-(1, '4', 4, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
-(2, '2', 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
-(3, '3', 6, 'Prueba 1', 123432, 2, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
-(4, '4', 5, 'Prueba 1', 123432, 3, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
-(7, '2', 2, '2', 2, 2, 2, '2026-03-02', '2026-03-03 21:57:51', 1);
+INSERT INTO `bitacora` (`id`, `economico`, `flotilla`, `tipo_mantenimiento`, `orden_servicio`, `km`, `proveedor`, `costo`, `fecha_mantenimiento`, `fecha_edicion`, `estatus`) VALUES
+(1, '4', 0, 4, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(2, '2', 0, 1, 'Prueba 1', 123432, 1, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(3, '3', 0, 6, 'Prueba 1', 123432, 2, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(4, '4', 0, 5, 'Prueba 1', 123432, 3, 12345, '2026-01-26', '2026-01-26 23:41:55', 0),
+(7, '2', 0, 2, '2', 2, 2, 2, '2026-03-02', '2026-03-03 21:57:51', 1),
+(8, '3', 1, 2, '423432', 234324, 2, 234324, '2026-04-06', '2026-04-06 22:58:43', 1);
 
 -- --------------------------------------------------------
 
@@ -70,11 +72,14 @@ CREATE TABLE `economico` (
 --
 
 INSERT INTO `economico` (`id`, `vehiculo`, `no_economico`, `descripcion`, `flotilla`) VALUES
-(1, 'Vehículo 1', '1', 'Vehículo 1', 2),
+(1, 'Vehículo 1', '122', 'Vehículo 1 ddd', 4),
 (2, 'Vehículo 2', '2', 'Vehículo 2', 1),
 (3, 'Vehículo 3', '3', 'Vehículo 3', 1),
 (4, 'Vehículo 4', '4', 'Vehículo 4', 3),
-(5, 'Vehículo 5', '5', 'Vehículo 5', 4);
+(5, 'Vehículo 5', '5', 'Vehículo 5', 4),
+(6, 'q', 'q', 'q', 2),
+(7, '1', '1', '1', 2),
+(8, '1q', '1q', '1q', 4);
 
 -- --------------------------------------------------------
 
@@ -92,10 +97,13 @@ CREATE TABLE `flotilla` (
 --
 
 INSERT INTO `flotilla` (`id`, `flotilla`) VALUES
-(1, 'Flotilla 1'),
-(2, 'Flotilla 2'),
-(3, 'Flotilla 3'),
-(4, 'Flotilla 4');
+(1, 'Flotilla 18'),
+(2, 'Flotilla 27'),
+(3, 'Flotilla 36'),
+(4, 'Flotilla 45'),
+(5, 'Flotilla 54'),
+(6, 'Flotilla 63'),
+(14, 'Flotilla 72');
 
 -- --------------------------------------------------------
 
@@ -184,19 +192,19 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `economico`
 --
 ALTER TABLE `economico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `flotilla`
 --
 ALTER TABLE `flotilla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `mantenimiento`

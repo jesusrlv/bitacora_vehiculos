@@ -34,6 +34,7 @@ function guardarBitacora(){
     let costo = $('#costo').val();
     let fechaMantenimiento = $('#fechaMantenimiento').val();
     let numEconomico = $('#numEconomico').val();
+    let flotilla = $('#numEconomico option:selected').data('vehiculo');
 
     if(proveedor === "" || mantenimiento === "" || ordenServicio === "" || kilometraje === "" || costo === "" || fechaMantenimiento === "" || numEconomico === ""){
         alert("Por favor, complete todos los campos antes de guardar.");
@@ -50,7 +51,8 @@ function guardarBitacora(){
             kilometraje: kilometraje,
             costo: costo,
             fechaMantenimiento: fechaMantenimiento,
-            numEconomico: numEconomico
+            numEconomico: numEconomico,
+            flotilla: flotilla
         },
         dataType: "json",
         success: function(response){

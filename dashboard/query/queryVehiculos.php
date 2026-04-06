@@ -9,7 +9,7 @@
     ';
     while($row = $resultadoSql->fetch_assoc()) {
         echo'
-        <option value="'.$row['id'].'">'.$row['vehiculo'].'</option>
+        <option value="'.$row['id'].'" data-vehiculo="'.$row['flotilla'].'">'.$row['vehiculo'].'</option>
         ';
     }
 

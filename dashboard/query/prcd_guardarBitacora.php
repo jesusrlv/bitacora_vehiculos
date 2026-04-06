@@ -9,6 +9,7 @@
     $fechaMantenimiento = $_POST['fechaMantenimiento'];
     $numEconomico = $_POST['numEconomico'];
     $fechaHoy = date('Y-m-d H:i:s');
+    $flotilla = $_POST['flotilla'];
 
     $sql = "INSERT INTO bitacora (
     proveedor, 
@@ -19,6 +20,7 @@
     costo, 
     fecha_mantenimiento,
     fecha_edicion,
+    flotilla,
     estatus
     ) VALUES (
     '$proveedor', 
@@ -29,6 +31,7 @@
     '$costo', 
     '$fechaMantenimiento',
     '$fechaHoy',
+    '$flotilla',
     1
     )";
     $resultadoSql = $conn->query($sql);
