@@ -1,4 +1,12 @@
 function altaBitacora(){
+    
+    let dia = new Date().getDate(); // Obtener el día actual
+    let mes = new Date().getMonth() + 1; // Obtener el mes actual (0-11, por eso se suma 1)
+    let annio = new Date().getFullYear(); // Obtener el año actual
+    // Formatear la fecha en formato YYYY-MM-DD
+    let fechaActual = `${annio}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+    $('#fechaMantenimiento').val(fechaActual);
+    $('fechaMantenimiento').attr('max', fechaActual);
     $('#altaBitacoraModal').modal('show');
     $.ajax({
         type: "POST",

@@ -1,4 +1,31 @@
+function bitacoraInicial(){
+    // let mes = $('#fecha_mes').val();
+    // let annio = $('#fecha_annio').val();
+        let mes = new Date().getMonth() + 1; // Obtener el mes actual (0-11, por eso se suma 1)
+        let annio = new Date().getFullYear(); // Obtener el año actual
+        $('#fecha_mes').val(mes);
+        $('#fecha_annio').val(annio);
+
+    $.ajax({
+        type: "POST",
+        data: {
+            fecha_mes: mes,
+            fecha_annio: annio
+        },
+        url: "query/bitacora.php",
+        dataType: "html",
+        success: function(data){
+            $('#datosBitacora').html(data);
+            flotillaGraph();
+            datosCard();
+        }
+    });
+}
 function bitacora(){
+    if($('#fecha_mes').val() === "Mes..." || $('#fecha_annio').val() === "Año..."){
+        alert("Por favor, seleccione un mes y año válidos.");
+        return;
+    }
     let mes = $('#fecha_mes').val();
     let annio = $('#fecha_annio').val();
     $.ajax({
