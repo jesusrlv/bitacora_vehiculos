@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-04-2026 a las 23:01:36
+-- Tiempo de generación: 21-04-2026 a las 00:11:28
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -80,6 +80,26 @@ INSERT INTO `economico` (`id`, `vehiculo`, `no_economico`, `descripcion`, `floti
 (6, 'q', 'q', 'q', 2),
 (7, '1', '1', '1', 2),
 (8, '1q', '1q', '1q', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `evidencia`
+--
+
+CREATE TABLE `evidencia` (
+  `id` int(11) NOT NULL,
+  `fileP` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_ext` int(11) NOT NULL,
+  `fecha_subida` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `evidencia`
+--
+
+INSERT INTO `evidencia` (`id`, `fileP`, `id_ext`, `fecha_subida`) VALUES
+(2, 'bitacora_8_1776714505_4707.jpeg', 8, '2026-04-20 21:48:25');
 
 -- --------------------------------------------------------
 
@@ -167,6 +187,12 @@ ALTER TABLE `economico`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `evidencia`
+--
+ALTER TABLE `evidencia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `flotilla`
 --
 ALTER TABLE `flotilla`
@@ -199,6 +225,12 @@ ALTER TABLE `bitacora`
 --
 ALTER TABLE `economico`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `evidencia`
+--
+ALTER TABLE `evidencia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `flotilla`
