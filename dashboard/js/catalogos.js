@@ -324,6 +324,40 @@ function reporteFlotilla(id) {
      $('#idFlotillaReporte').val(id);
       let fechaBuscar = $('#fechaReporteFlotilla').val();
 
+       $.ajax({
+        type: "POST",
+        url: "query/queryNombreFlotillaModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreFlotilla = data.nombreFlotilla;
+
+            $('#nombreFlotillaReporte').html(nombreFlotilla);
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteFlotillaModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteFlotillaQuery').html(data);
+        }
+    });
+}
+function reporteFlotillaFecha() {
+    let id = $('#idFlotillaReporte').val();
+    let fechaBuscar = $('#fechaReporteFlotilla').val();
+    //  let fechahoy = new Date();
+    //  $('#fechaReporteFlotilla').val(fechahoy.toISOString().split('T')[0]);
+    //  $('#idFlotillaReporte').val(id);
+    //   let fechaBuscar = $('#fechaReporteFlotilla').val();
+
     $.ajax({
         type: "POST",
         url: "query/queryReporteFlotillaModal.php",
@@ -582,4 +616,207 @@ function costo() {
             $('#costo').html(data);
         }
     });
+}
+
+// FUNCIONES DE REPORTES - MANTENIMIENTO
+function reporteMantenimiento(id) {
+    $("#modalReporteMantenimiento").modal("show");
+    $("#modalMantenimiento").modal("hide");
+     let fechahoy = new Date();
+     $('#fechaReporteMantenimiento').val(fechahoy.toISOString().split('T')[0]);
+     $('#idMantenimientoReporte').val(id);
+      let fechaBuscar = $('#fechaReporteMantenimiento').val();
+    //nombre del mantenimiento en el modal de reporte
+    $.ajax({
+        type: "POST",
+        url: "query/queryNombreMantenimientoModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreMantenimiento = data.nombreMantenimiento;
+            $('#nombreMantenimientoReporte').html(nombreMantenimiento);
+        }
+    });
+    //tabla de modal de mantenimiento
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteMantenimientoModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteMantenimientoQuery').html(data);
+        }
+    });
+}
+
+function reporteMantenimientoFecha() {
+    let id = $('#idMantenimientoReporte').val();
+    let fechaBuscar = $('#fechaReporteMantenimiento').val();
+    //nombre del mantenimiento en el modal de reporte
+    $.ajax({
+        type: "POST",
+        url: "query/queryNombreMantenimientoModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreMantenimiento = data.nombreMantenimiento;
+            $('#nombreMantenimientoReporte').html(nombreMantenimiento);
+        }
+    });
+    //tabla de modal de mantenimiento
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteMantenimientoModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteMantenimientoQuery').html(data);
+        }
+    });
+}
+
+function reporteMantenimientoExcel() {
+  const tabla = document.getElementById('reporteMantenimientoTable');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteMantenimiento.xls';
+  a.click();
+}
+
+// FUNCIONES DE REPORTES - PROVEEDOR
+function reporteProveedor(id) {
+    $("#modalReporteProveedor").modal("show");
+    $("#modalProveedor").modal("hide");
+     let fechahoy = new Date();
+     $('#fechaReporteProveedor').val(fechahoy.toISOString().split('T')[0]);
+     $('#idProveedorReporte').val(id);
+      let fechaBuscar = $('#fechaReporteProveedor').val();
+    //nombre del proveedor en el modal de reporte
+    $.ajax({
+        type: "POST",
+        url: "query/queryNombreProveedorModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreProveedor = data.nombreProveedor;
+            $('#nombreProveedorReporte').html(nombreProveedor);
+        }
+    });
+    //tabla de modal de proveedor
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteProveedorModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteProveedorQuery').html(data);
+        }
+    });
+}
+
+function reporteProveedorFecha() {
+    let id = $('#idProveedorReporte').val();
+    let fechaBuscar = $('#fechaReporteProveedor').val();
+    //nombre del proveedor en el modal de reporte
+    $.ajax({
+        type: "POST",
+        url: "query/queryNombreProveedorModal.php",
+        data: {
+            id: id
+        },
+        dataType: "json",
+        success: function(data){
+            let nombreProveedor = data.nombreProveedor;
+            $('#nombreProveedorReporte').html(nombreProveedor);
+        }
+    });
+    //tabla de modal de proveedor
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteProveedorModal.php",
+        data: {
+            id: id,
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteProveedorQuery').html(data);
+        }
+    });
+}
+
+function reporteProveedorExcel() {
+  const tabla = document.getElementById('reporteProveedorTable');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteProveedor.xls';
+  a.click();
+}
+
+// FUNCIONES DE REPORTES - COSTO
+function reporteCosto() {
+    $("#modalReporteCosto").modal("show");
+    $("#modalCosto").modal("hide");
+     let fechahoy = new Date();
+     $('#fechaReporteCosto').val(fechahoy.toISOString().split('T')[0]);
+     let fechaBuscar = $('#fechaReporteCosto').val();
+    
+    //tabla de modal de costo
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteCostoModal.php",
+        data: {
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteCostoQuery').html(data);
+        }
+    });
+}
+
+function reporteCostoFecha() {
+    let fechaBuscar = $('#fechaReporteCosto').val();
+    
+    //tabla de modal de costo
+    $.ajax({
+        type: "POST",
+        url: "query/queryReporteCostoModal.php",
+        data: {
+            fecha: fechaBuscar
+        },
+        dataType: "html",
+        success: function(data){
+            $('#modalReporteCostoQuery').html(data);
+        }
+    });
+}
+
+function reporteCostoExcel() {
+  const tabla = document.getElementById('reporteCostoTable');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteCosto.xls';
+  a.click();
 }

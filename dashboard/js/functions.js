@@ -96,3 +96,13 @@ function exportarTabla() {
   a.download = 'reporteBitacora.xls';
   a.click();
 }
+
+function reporteFlotillaExcel() {
+  const tabla = document.getElementById('reporteFlotillaTable');
+  const html = tabla.outerHTML;
+  const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'reporteFlotilla.xls';
+  a.click();
+}
