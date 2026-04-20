@@ -34,7 +34,7 @@
             <td>'.$proveedor2.'</td>
             <td>'.$row['costo'].'</td>
             <td>'.$row['fecha_mantenimiento'].'</td>
-            <td><i class="bi bi-images"></i></td>
+            <td><button class="btn btn-info btn-sm" onclick="abrirModalEvidencia('.$row['id'].')"><i class="bi bi-images"></i></button></td>
             <td>
             <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalVer'.$row['id'].'"><i class="bi bi-eye-fill"></i></button>            
             <button class="btn btn-secondary btn-sm" onclick="editarRegistro('.$row['id'].')"><i class="bi bi-pencil-square"></i></button>  

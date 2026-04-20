@@ -706,9 +706,11 @@
           </div>
           <div class="row">
             <div class="col-3"></div>
-            <div class="col-3"></div>
-            <div class="col-3"></div>
+            <div class="col-5"></div>
             <div class="col-3 text-end">
+              <button class="btn btn-warning" onclick="descargarEvidenciaZip()"><i class="bi bi-file-earmark-zip"></i> Descargar Evidencia ZIP</button>
+            </div>
+            <div class="col-1 text-end">
               <button class="btn btn-success" onclick="exportarTabla()"><i class="bi bi-file-earmark-excel-fill"></i> Excel</button>
             </div>
           </div>
@@ -1469,6 +1471,52 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-dismiss="true">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Evidencia de Fotos -->
+<div class="modal modal-lg fade" id="modalEvidenciaFotos" tabindex="-1" aria-labelledby="modalEvidenciaFotosLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalEvidenciaFotosLabel"><i class="bi bi-images"></i> Evidencia de Fotos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="idBitacoraEvidencia">
+        
+        <!-- Sección de carga -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h6 class="mb-0"><i class="bi bi-cloud-arrow-up"></i> Cargar Fotos</h6>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="inputFotos" class="form-label">Selecciona fotos (JPG, PNG, GIF, WEBP - máx 5MB cada una)</label>
+              <input class="form-control" type="file" id="inputFotos" accept="image/*" multiple>
+              <small class="text-muted">Puedes seleccionar múltiples fotos a la vez</small>
+            </div>
+            <button class="btn btn-primary w-100" onclick="subirEvidencia()"><i class="bi bi-upload"></i> Subir Fotos</button>
+          </div>
+        </div>
+
+        <!-- Sección de evidencia cargada -->
+        <div class="card">
+          <div class="card-header">
+            <h6 class="mb-0"><i class="bi bi-collection"></i> Evidencia Cargada</h6>
+          </div>
+          <div class="card-body">
+            <div id="contenedorEvidencia" class="text-center text-muted">
+              <p>Cargando...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" onclick="descargarEvidenciaZipBitacora()"><i class="bi bi-file-earmark-zip"></i> Descargar Evidencia ZIP</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
